@@ -2,23 +2,24 @@ package com.xdm.pureb;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-import android.text.Editable;
+import android.util.Log;
+import android.widget.Button;
 
 
 public class OtpActivity extends AppCompatActivity {
+    private static final String TAG = "OtpActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_otp);
 
         EditText otpEditText1 = findViewById(R.id.otpEditText1);
@@ -35,7 +36,6 @@ public class OtpActivity extends AppCompatActivity {
         setUpOtpEditText(otpEditText5, otpEditText6);
         setUpOtpEditText(otpEditText6, null);
 
-
         findViewById(R.id.loginButton).setOnClickListener(v -> {
             Intent intent = new Intent(OtpActivity.this, SignUpActivity.class);
             startActivity(intent);
@@ -51,21 +51,17 @@ public class OtpActivity extends AppCompatActivity {
     private void setUpOtpEditText(final EditText currentEditText, final EditText nextEditText) {
         currentEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() == 1) {
-                    if (nextEditText != null) {
-                        nextEditText.requestFocus();
-                    }
+                if (s.length() == 1 && nextEditText != null) {
+                    nextEditText.requestFocus();
                 }
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-            }
+            public void afterTextChanged(Editable s) {}
         });
     }
 }

@@ -2,6 +2,7 @@ package com.xdm.pureb;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -23,47 +24,51 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        // Initialize EditText fields
         dobEditText = findViewById(R.id.dobEditText);
         emailEditText = findViewById(R.id.emailEditText);
 
-        // Set up DatePickerDialog for Date of Birth EditText
         dobEditText.setOnClickListener(v -> showDatePicker());
 
-        // Set up sign up button click listener
         Button signUpButton = findViewById(R.id.signUpButton);
-        signUpButton.setOnClickListener(v -> validateAndSubmit());
+        signUpButton.setOnClickListener(v -> {
+            if (validateAndSubmit()) {
+                Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    // Method to show DatePickerDialog
     private void showDatePicker() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        // Create and show DatePickerDialog
         @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 (view, year1, month1, dayOfMonth) ->
                         dobEditText.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1),
                 year, month, day);
+
+        // Set maximum date to current date
+        datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+
         datePickerDialog.show();
     }
 
-    // Method to validate email and proceed with signup
-    private void validateAndSubmit() {
+    private boolean validateAndSubmit() {
         String email = emailEditText.getText().toString().trim();
 
         if (!isValidEmail(email)) {
             emailEditText.setError("Invalid email");
             emailEditText.requestFocus();
+            return false;
         } else {
             // Proceed with the signup process
             Toast.makeText(this, "Sign up successful!", Toast.LENGTH_SHORT).show();
+            return true;
         }
     }
 
-    // Method to validate email using Patterns.EMAIL_ADDRESS
     private boolean isValidEmail(CharSequence email) {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }

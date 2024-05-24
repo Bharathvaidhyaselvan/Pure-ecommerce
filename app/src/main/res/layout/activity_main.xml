@@ -71,7 +71,7 @@
                 android:padding="12dp"
                 android:textColor="@color/black"
                 android:textColorHint="#757575"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 tools:ignore="VisualLintTextFieldSize" />
 
         </LinearLayout>
@@ -86,7 +86,7 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="32dp"
         android:text="Send OTP"
-        android:background="@drawable/primarybtn"
+        android:background="@drawable/buttonbg"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

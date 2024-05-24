@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <FrameLayout
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <ScrollView
+            android:id="@+id/scroll_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/this_is_the_sample_description_of_the_app"
+            tools:ignore="UselessParent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Welcome,"
+                            android:textColor="@color/black"
+                            android:textColorHighlight="@color/black"
+                            android:textFontWeight="800"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Chennai, Tamilnadu, India"
+                            android:textColor="@color/Grey"
+                            android:textColorHighlight="@color/Grey"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:foregroundGravity="top"
+                        android:gravity="top"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/notificationbtn" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/searchlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="clip_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/header"
+                    app:layout_constraintTop_toBottomOf="@+id/header">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        app:cardBackgroundColor="@color/BlueWhite"
+                        app:cardCornerRadius="1000dp"
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="5dp">
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="0"
+                                app:srcCompat="@drawable/searchbtn" />
+
+                            <EditText
+                                android:id="@+id/editTextText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="0"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:fontFamily="@font/poppins"
+                                android:inputType="text"
+                                android:minHeight="48dp"
+                                android:paddingLeft="10dp"
+                                android:text="Search for products"
+                                android:textColor="@color/Grey"
+                                android:textColorHighlight="@color/Grey"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchlayout">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardBackgroundColor="@color/BlueWhite"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="15dp">
+
+                            <LinearLayout
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:id="@+id/textView8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="Shop Your Daily  Necessary"
+                                    android:textColor="@color/black"
+                                    android:textColorHighlight="@color/black"
+                                    android:textFontWeight="900"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/textView11"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/this_is_the_sample_description_of_the_app"
+                                    android:textColor="@color/Grey"
+                                    android:textColorHighlight="@color/Grey" />
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1" />
+
+                                <Button
+                                    android:id="@+id/button"
+                                    android:layout_width="180dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/buttonbg"
+                                    android:text="Free Delivery"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="16sp"
+                                    tools:ignore="TouchTargetSizeCheck" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <ImageView
+                                android:id="@+id/imageView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0"
+                                android:paddingRight="10dp"
+                                app:srcCompat="@drawable/productimg" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/banner">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"></LinearLayout>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+    <!-- Menu as Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:tabGravity="fill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/navigation"
+        app:tabMode="fixed"
+        android:textSize="12sp"
+        app:tabIndicatorHeight="0dp"/>
+
+</RelativeLayout>
